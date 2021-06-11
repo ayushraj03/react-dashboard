@@ -1,10 +1,10 @@
 import React, { Component } from "react";
 
-export default class Home extends Component {
+export default class Sync extends Component {
   render() {
     return (
       <div>
-        <h3>sync is successful</h3>
+        <h3>Home Page</h3>
       </div>
     );
   }

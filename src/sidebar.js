@@ -83,7 +83,7 @@ function ResponsiveDrawer(props) {
       <Divider />
 
       <List>
-        {["Inventory Syncc"].map((text, index) => (
+        {["Inventory Sync"].map((text, index) => (
           <ListItem onClick={handleclick1} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -154,7 +154,7 @@ function ResponsiveDrawer(props) {
               <MenuIcon />
             </IconButton>
             <Typography variant="h6" noWrap>
-              Dash Board
+              Dashboard
             </Typography>
           </Toolbar>
         </AppBar>

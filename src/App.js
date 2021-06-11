@@ -8,13 +8,6 @@ export default class Home extends Component {
     return (
       <Router>
         <div>
-          <Route
-            path="/sync"
-            exact
-            render={() => {
-              <h2>sync successful</h2>;
-            }}
-          />
           <Sidebar />
         </div>
       </Router>
