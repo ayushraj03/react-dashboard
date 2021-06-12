@@ -60,11 +60,18 @@ const useStyles = makeStyles((theme) => ({
 
 function handleclick1() {
   console.log("i was clicked");
-  axios.get("https://jsonplaceholder.typicode.com/users").then((res) => {
-    console.log("data loading success");
-    console.log(res);
-    console.log(res.data);
-  });
+  if (window.confirm("Are you sure you want to sync?")) {
+    axios
+      .post("https://api.gobillion.co/zoho/product/sync")
+      .then((res) => {
+        console.log("data loading success");
+        console.log(res);
+        console.log(res.data);
+      })
+      .catch((error) => {
+        console.log("error");
+      });
+  }
 }
 
 function ResponsiveDrawer(props) {
@@ -96,7 +103,7 @@ function ResponsiveDrawer(props) {
 
       <List>
         {["Reports"].map((text, index) => (
-          <ListItem onClick={handleclick1} button key={text}>
+          <ListItem button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
