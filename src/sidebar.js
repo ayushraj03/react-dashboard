@@ -22,6 +22,7 @@ import { useState, useEffect } from "react";
 import { useHistory } from "react-router-dom";
 import { BrowserRouter as Router } from "react-router-dom";
 import Route from "react-router-dom/Route";
+import Dialog from "./Components/dialog";
 
 const drawerWidth = 240;
 
@@ -71,6 +72,7 @@ function handleclick1() {
       .catch((error) => {
         console.log("error");
       });
+    return <Dialog />;
   }
 }
 
@@ -89,7 +91,7 @@ function ResponsiveDrawer(props) {
       <div className={classes.toolbar} />
       <Divider />
 
-      <List>
+      {/* <List>
         {["Inventory Sync"].map((text, index) => (
           <ListItem onClick={handleclick1} button key={text}>
             <ListItemIcon>
@@ -98,7 +100,8 @@ function ResponsiveDrawer(props) {
             <ListItemText primary={text} />
           </ListItem>
         ))}
-      </List>
+      </List> */}
+      <Dialog />
       <Divider />
 
       <List>
@@ -200,12 +203,9 @@ function ResponsiveDrawer(props) {
           <div className={classes.toolbar} />
           <Typography paragraph>
             <SyncPage />
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do
-            eiusmod tempor incididunt ut tincibus et molestie ac.
+            home
           </Typography>
-          <Typography paragraph>
-            Nulla posuere sollicitudin aliquam ultrices sagittis orci a.
-          </Typography>
+          <Typography paragraph>home</Typography>
         </main>
       </div>
     </Router>
