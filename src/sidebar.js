@@ -76,6 +76,10 @@ function handleclick1() {
   }
 }
 
+const mstyle = {
+  color: "#aeaeae",
+};
+
 function ResponsiveDrawer(props) {
   const { window } = props;
   const classes = useStyles();
@@ -106,7 +110,7 @@ function ResponsiveDrawer(props) {
 
       <List>
         {["Reports"].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem style={mstyle} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
@@ -119,7 +123,7 @@ function ResponsiveDrawer(props) {
       <List>
         {["Customers", "Sales Order", "Packages", "Invoice"].map(
           (text, index) => (
-            <ListItem button key={text}>
+            <ListItem style={mstyle} button key={text}>
               <ListItemIcon>
                 {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
               </ListItemIcon>
@@ -132,7 +136,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {["1", "2", "3"].map((text, index) => (
-          <ListItem button key={text}>
+          <ListItem style={mstyle} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
@@ -203,7 +207,6 @@ function ResponsiveDrawer(props) {
           <div className={classes.toolbar} />
           <Typography paragraph>
             <SyncPage />
-            home
           </Typography>
           <Typography paragraph>home</Typography>
         </main>
