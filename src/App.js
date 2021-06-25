@@ -15,9 +15,9 @@ export default class Home extends Component {
       <Router>
         <div>
           {/* <Sidebar /> */}
-          {/* <Login /> */}
+          <Login />
           {/* <CustomersList /> */}
-          <Transaction />
+          {/* <Transaction /> */}
           {/* <Charts /> */}
         </div>
       </Router>

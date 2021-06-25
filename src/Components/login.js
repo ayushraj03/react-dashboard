@@ -14,6 +14,7 @@ import { makeStyles } from "@material-ui/core/styles";
 import Container from "@material-ui/core/Container";
 import { useState } from "react";
 import "./login.css";
+import Sidebar from "../sidebar";
 
 import {
   BrowserRouter as Router,
@@ -104,13 +105,34 @@ export default function LogIn() {
         body: mg_body,
       })
         .then((res) => {
-          res.json().then((data) => console.log(data));
+          // res.json().then((data) => console.log(data));
+
+          res.json().then((res) => {
+            console.log(res["responseMessage"]);
+            if (res["responseMessage"] === "Success") {
+              console.log("redirecting user to admin dashboard");
+              setAuth(true);
+              //saving token value in local storage
+              window.localStorage.setItem("token", res["data"]["token"]);
+              const tokenval = window.localStorage.getItem("token");
+              console.log(tokenval);
+            } else {
+              setAuth(false);
+              console.log("no permission to redirect user to  dashboard page");
+              sethasError(true);
+            }
+          });
+
           // console.log("This is the resss body", res.json());
         })
         .catch((err) => {
           console.log("This was the error", err);
         });
     }
+  }
+  if (isAuth) {
+    console.log("-------------here-----------");
+    return <Sidebar />;
   }
 
   // .then((res) => {

@@ -33,7 +33,7 @@ export default function AlertDialogSlide() {
   };
 
   const notify2 = () => {
-    toast.error("Inventory sync is unsuccesssful", {
+    toast.error("oops!! Inventory sync is unsuccesssful", {
       position: toast.POSITION.TOP_CENTER,
       autoClose: false,
     });
@@ -92,7 +92,7 @@ export default function AlertDialogSlide() {
         </DialogTitle>
         <DialogContent>
           <DialogContentText id="alert-dialog-slide-description">
-            Click on agree and it will sync your Inventory
+            Click on agree and it will sync your Inventory.
           </DialogContentText>
         </DialogContent>
         <DialogActions>

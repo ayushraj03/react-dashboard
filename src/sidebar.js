@@ -59,22 +59,22 @@ const useStyles = makeStyles((theme) => ({
   },
 }));
 
-function handleclick1() {
-  console.log("i was clicked");
-  if (window.confirm("Are you sure you want to sync?")) {
-    axios
-      .post("https://api.gobillion.co/zoho/product/sync")
-      .then((res) => {
-        console.log("data loading success");
-        console.log(res);
-        console.log(res.data);
-      })
-      .catch((error) => {
-        console.log("error");
-      });
-    return <Dialog />;
-  }
-}
+// function handleclick1() {
+//   console.log("i was clicked");
+//   if (window.confirm("Are you sure you want to sync?")) {
+//     axios
+//       .post("https://api.gobillion.co/zoho/product/sync")
+//       .then((res) => {
+//         console.log("data loading success");
+//         console.log(res);
+//         console.log(res.data);
+//       })
+//       .catch((error) => {
+//         console.log("error");
+//       });
+//     return <Dialog />;
+//   }
+// }
 
 const mstyle = {
   color: "#aeaeae",
