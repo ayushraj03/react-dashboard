@@ -46,7 +46,9 @@ export default function AlertDialogSlide() {
   const handleCloseAgree = () => {
     setOpen(false);
     axios
-      .post("https://api.gobillion.co/zoho/product/sync")
+      .post(
+        "http://gobilliondev-env.eba-tekrrvmw.ap-south-1.elasticbeanstalk.com/zoho/product/sync"
+      )
       .then((res) => {
         console.log("data loading success");
         console.log(res);

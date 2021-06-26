@@ -8,6 +8,7 @@ import Transaction from "./Components/transactions";
 import Login from "./Components/login";
 import CustomersList from "./Components/customerList";
 import Charts from "./Components/transChart";
+import Reports from "./Components/reports";
 
 export default class Home extends Component {
   render() {
@@ -15,7 +16,8 @@ export default class Home extends Component {
       <Router>
         <div>
           {/* <Sidebar /> */}
-          <Login />
+          {/* <Login /> */}
+          <Reports />
           {/* <CustomersList /> */}
           {/* <Transaction /> */}
           {/* <Charts /> */}
