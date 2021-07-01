@@ -15,6 +15,7 @@ import List from "@material-ui/core/List";
 import axios from "axios";
 import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
+import CustomerList from "./customerList";
 
 const Transition = React.forwardRef(function Transition(props, ref) {
   return <Slide direction="up" ref={ref} {...props} />;
@@ -22,6 +23,7 @@ const Transition = React.forwardRef(function Transition(props, ref) {
 
 export default function AlertDialogSlide() {
   const [open, setOpen] = React.useState(false);
+  const [open2, setOpen2] = React.useState(false);
 
   toast.configure();
 
@@ -41,6 +43,10 @@ export default function AlertDialogSlide() {
 
   const handleClickOpen = () => {
     setOpen(true);
+  };
+
+  const handleClickOpen2 = () => {
+    setOpen2(true);
   };
 
   const handleCloseAgree = () => {
@@ -72,15 +78,20 @@ export default function AlertDialogSlide() {
         Sync Inventory
       </Button> */}
       <List>
-        {["Inventory Sync"].map((text, index) => (
-          <ListItem onClick={handleClickOpen} button key={text}>
-            <ListItemIcon>
-              {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
-            </ListItemIcon>
-            <ListItemText primary={text} />
-          </ListItem>
-        ))}
+        {["Inventory Sync"].map((text, index) => {
+          if (text == "Inventory Sync") {
+            return (
+              <ListItem onClick={handleClickOpen} button key={text}>
+                <ListItemIcon>
+                  {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
+                </ListItemIcon>
+                <ListItemText primary={text} />
+              </ListItem>
+            );
+          }
+        })}
       </List>
+
       <Dialog
         open={open}
         TransitionComponent={Transition}

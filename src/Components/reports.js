@@ -17,6 +17,9 @@ import { makeStyles } from "@material-ui/core/styles";
 import Button from "@material-ui/core/Button";
 import ButtonGroup from "@material-ui/core/ButtonGroup";
 
+import Drop from "./dropdown";
+import Pie from "./pie";
+
 const useStyles1 = makeStyles((theme) => ({
   root: {
     display: "flex",
@@ -61,13 +64,16 @@ export default function MaterialUIPickers() {
 
   const handleDateChange = (date) => {
     setSelectedDate(date);
+    console.log(selectedDate);
   };
 
   return (
     <div>
-      <div style={{ padding: "25px" }}>
+      <div style={{ padding: "25px", paddingLeft: "150px" }}>
         <h2>ANALYTICS REPORT</h2>
+        <Drop />
       </div>
+
       <MuiPickersUtilsProvider utils={DateFnsUtils}>
         <Grid container justify="space-around">
           <KeyboardDatePicker
@@ -132,7 +138,7 @@ export default function MaterialUIPickers() {
           </Card>
         </span>
       </div> */}
-      <div style={{ display: "flex" }}>
+      <div style={{ display: "flex", paddingLeft: "125px" }}>
         <span style={{ display: "inline-block", padding: "25px" }}>
           <Card className={classes.root}>
             <CardHeader
@@ -146,7 +152,10 @@ export default function MaterialUIPickers() {
         </span>
 
         <span style={{ display: "inline-block", padding: "25px" }}>
-          <Card className={classes.root}>
+          <Card
+            className={classes.root}
+            onClick={() => console.log("card click works")}
+          >
             <CardHeader
               title="Cancelled orders"
               subheader="Total Transactions"
@@ -158,7 +167,7 @@ export default function MaterialUIPickers() {
         </span>
       </div>
       <div className={classes.root}>
-        <span style={{ padding: "25px" }}>
+        {/* <span style={{ padding: "25px" }}>
           <ButtonGroup
             color="secondary"
             aria-label="outlined secondary button group"
@@ -167,7 +176,7 @@ export default function MaterialUIPickers() {
             <Button>Monthly</Button>
             <Button>Yearly</Button>
           </ButtonGroup>
-        </span>
+        </span> */}
       </div>
       {/* <div
         style={{
@@ -193,6 +202,7 @@ export default function MaterialUIPickers() {
           </Card>
         </span>
       </div> */}
+      <Pie />
     </div>
   );
 }

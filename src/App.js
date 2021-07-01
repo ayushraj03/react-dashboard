@@ -9,18 +9,24 @@ import Login from "./Components/login";
 import CustomersList from "./Components/customerList";
 import Charts from "./Components/transChart";
 import Reports from "./Components/reports";
+import Wmy from "./Components/wmy";
+import Modal from "./Components/dashModal";
+import Tile from "./Components/tiles";
 
 export default class Home extends Component {
   render() {
     return (
       <Router>
         <div>
-          {/* <Sidebar /> */}
+          <Sidebar />
           {/* <Login /> */}
-          <Reports />
+          {/* <Reports /> */}
           {/* <CustomersList /> */}
           {/* <Transaction /> */}
           {/* <Charts /> */}
+          {/* <Wmy /> */}
+          {/* <Tile /> */}
+          {/* <Modal /> */}
         </div>
       </Router>
     );

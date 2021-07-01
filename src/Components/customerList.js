@@ -1,44 +1,80 @@
-import * as React from 'react';
-import { DataGrid } from '@material-ui/data-grid';
+import "../App.css";
+import React, { Component } from "react";
+// import "../node_modules/bootstrap/dist/css/bootstrap.min.css";
+import BootstrapTable from "react-bootstrap-table-next";
+import "bootstrap/dist/css/bootstrap.min.css";
 
+const data = [
+  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
+  { sno: 2, email: 2, name: "Buster", phone: "5" },
+  { sno: 3, email: 3, name: "George Michael", phone: "4" },
+  { sno: 4, email: 3, name: "john paul", phone: "4" },
+  { sno: 5, email: 3, name: "simmonl", phone: "4" },
+  { sno: 6, email: 3, name: "bob", phone: "4" },
+  { sno: 7, email: 3, name: "George Michael", phone: "4" },
+  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
+  { sno: 2, email: 2, name: "Buster", phone: "5" },
+  { sno: 3, email: 3, name: "George Michael", phone: "4" },
+  { sno: 4, email: 3, name: "john paul", phone: "4" },
+  { sno: 5, email: 3, name: "simmonl", phone: "4" },
+  { sno: 6, email: 3, name: "bob", phone: "4" },
+  { sno: 7, email: 3, name: "George Michael", phone: "4" },
+  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
+  { sno: 2, email: 2, name: "Buster", phone: "5" },
+  { sno: 3, email: 3, name: "George Michael", phone: "4" },
+  { sno: 4, email: 3, name: "john paul", phone: "4" },
+  { sno: 5, email: 3, name: "simmonl", phone: "4" },
+  { sno: 6, email: 3, name: "bob", phone: "4" },
+  { sno: 7, email: 3, name: "George Michael", phone: "4" },
+];
 const columns = [
-  { field: 'id', headerName: 'ID', width: 100 },
-  { field: 'firstName', headerName: 'First name', width: 200 },
-  { field: 'lastName', headerName: 'Last name', width: 200 },
   {
-    field: 'age',
-    headerName: 'Age',
-    type: 'number',
-    width: 200,
+    dataField: "sno",
+    text: "S.no",
+    style: { backgroundColor: "#add8e6" },
   },
   {
-    field: 'fullName',
-    headerName: 'Full name',
-    description: 'This column has a value getter and is not sortable.',
-    sortable: false,
-    width: 200,
-    valueGetter: (params) =>
-      `${params['row']['firstName'] || ''} ${params['row']['lastName'] || ''}`,
-    // {console.log(params['row']['firstName']);return (params)}
+    dataField: "name",
+    text: "Customer Name",
+    style: { backgroundColor: "#fdfcdc" },
+  },
+  {
+    dataField: "email",
+    text: "Email",
+    style: { backgroundColor: "#fed9b7" },
+  },
+  {
+    dataField: "phone",
+    text: "Contact",
+    style: { backgroundColor: "#add8e6" },
   },
 ];
 
-const rows = [
-  { id: 1, lastName: 'Snow', firstName: 'Jon', age: 35 },
-  { id: 2, lastName: 'Lannister', firstName: 'Cersei', age: 42 },
-  { id: 3, lastName: 'Lannister', firstName: 'Jaime', age: 45 },
-  { id: 4, lastName: 'Stark', firstName: 'Arya', age: 16 },
-  { id: 5, lastName: 'Targaryen', firstName: 'Daenerys', age: null },
-  { id: 6, lastName: 'Melisandre', firstName: null, age: 150 },
-  { id: 7, lastName: 'Clifford', firstName: 'Ferrara', age: 44 },
-  { id: 8, lastName: 'Frances', firstName: 'Rossini', age: 36 },
-  { id: 9, lastName: 'Roxie', firstName: 'Harvey', age: 65 },
-];
-
-export default function DataTable() {
-  return (
-    <div style={{ height: 400, width: '100%' }}>
-      <DataGrid rows={rows} columns={columns}  checkboxSelection />
-    </div>
-  );
+// async function apicall() {
+//   await fetch("").then((res) => {
+//     console.log(res["users"]["name"]);
+//   });
+// }
+const getlist = () => {
+  console.log("fetching");
+  // apicall();
+};
+class Cus extends Component {
+  render() {
+    return (
+      <div className="App">
+        <h2
+          style={{ backgroundColor: "black", color: "white", padding: "10px" }}
+          className="Table-header"
+        >
+          Customer List
+        </h2>{" "}
+        <span>
+          <button onClick={getlist}>get list</button>
+        </span>
+        <BootstrapTable keyField="id" data={data} columns={columns} />
+      </div>
+    );
+  }
 }
+export default Cus;

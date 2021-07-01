@@ -115,7 +115,7 @@ export default function LogIn() {
               //saving token value in local storage
               window.localStorage.setItem("token", res["data"]["token"]);
               const tokenval = window.localStorage.getItem("token");
-              console.log(tokenval);
+              // console.log(tokenval);
             } else {
               setAuth(false);
               console.log("no permission to redirect user to  dashboard page");
@@ -130,8 +130,8 @@ export default function LogIn() {
         });
     }
   }
+
   if (isAuth) {
-    console.log("-------------here-----------");
     return <Sidebar />;
   }
 
