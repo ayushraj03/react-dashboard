@@ -4,35 +4,16 @@ import React, { Component } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-const data = [
-  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
-  { sno: 2, email: 2, name: "Buster", phone: "5" },
-  { sno: 3, email: 3, name: "George Michael", phone: "4" },
-  { sno: 4, email: 3, name: "john paul", phone: "4" },
-  { sno: 5, email: 3, name: "simmonl", phone: "4" },
-  { sno: 6, email: 3, name: "bob", phone: "4" },
-  { sno: 7, email: 3, name: "George Michael", phone: "4" },
-  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
-  { sno: 2, email: 2, name: "Buster", phone: "5" },
-  { sno: 3, email: 3, name: "George Michael", phone: "4" },
-  { sno: 4, email: 3, name: "john paul", phone: "4" },
-  { sno: 5, email: 3, name: "simmonl", phone: "4" },
-  { sno: 6, email: 3, name: "bob", phone: "4" },
-  { sno: 7, email: 3, name: "George Michael", phone: "4" },
-  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
-  { sno: 2, email: 2, name: "Buster", phone: "5" },
-  { sno: 3, email: 3, name: "George Michael", phone: "4" },
-  { sno: 4, email: 3, name: "john paul", phone: "4" },
-  { sno: 5, email: 3, name: "simmonl", phone: "4" },
-  { sno: 6, email: 3, name: "bob", phone: "4" },
-  { sno: 7, email: 3, name: "George Michael", phone: "4" },
-];
+// const data = [
+//   { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
+//   { sno: 2, email: 2, name: "Buster", phone: "5" },
+// ];
 const columns = [
-  {
-    dataField: "sno",
-    text: "S.no",
-    style: { backgroundColor: "#add8e6" },
-  },
+  // {
+  //   dataField: "sno",
+  //   text: "S.no",
+  //   style: { backgroundColor: "#add8e6" },
+  // },
   {
     dataField: "name",
     text: "Customer Name",
@@ -49,32 +30,60 @@ const columns = [
     style: { backgroundColor: "#add8e6" },
   },
 ];
+class Customer extends React.PureComponent {
+  constructor(props) {
+    super(props);
+    // Don't call this.setState() here!
 
-// async function apicall() {
-//   await fetch("").then((res) => {
-//     console.log(res["users"]["name"]);
-//   });
-// }
-const getlist = () => {
-  console.log("fetching");
-  // apicall();
-};
-class Cus extends Component {
+    this.userList = {};
+    this.state = { isLoading: false, usersList: [] };
+    this.addData = this.addData.bind(this);
+  }
+  componentDidMount() {
+    this.addData();
+  }
+
+  addData() {
+    fetch("http://localhost:8080/user/list-users").then((res) => {
+      this.setState({
+        isLoading: true,
+      });
+      res.json().then((result) => {
+        console.log("this was the response", result);
+        console.log("this is the users", result.users);
+
+        this.setState({
+          usersList: result.users,
+          isLoading: false,
+        });
+      });
+    });
+  }
+
   render() {
-    return (
+    // let test;
+    // if (this.state.usersList.length == 0) {
+    //   test = <button>test</button>;
+    // } else {
+    //   test = <button>{this.state.usersList[1].name.toString()}</button>;
+    // }
+    return [
       <div className="App">
         <h2
-          style={{ backgroundColor: "black", color: "white", padding: "10px" }}
+          style={{ backgroundColor: "black", color: "white", padding: "8px" }}
           className="Table-header"
         >
           Customer List
         </h2>{" "}
-        <span>
-          <button onClick={getlist}>get list</button>
-        </span>
-        <BootstrapTable keyField="id" data={data} columns={columns} />
-      </div>
-    );
+        {/* {test} */}
+        <span></span>
+        <BootstrapTable
+          keyField="id"
+          data={this.state.usersList}
+          columns={columns}
+        />
+      </div>,
+    ];
   }
 }
-export default Cus;
+export default Customer;

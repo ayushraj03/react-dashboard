@@ -92,7 +92,7 @@ function ResponsiveDrawer(props) {
     setMobileOpen(!mobileOpen);
   };
   const handleClickOpen2 = () => {
-    setOpen2(true);
+    setOpen2(!open2);
     console.log("fetch the api data");
   };
   const drawer = (
@@ -122,8 +122,9 @@ function ResponsiveDrawer(props) {
           </ListItem>
         ))}
       </List>
+      <Divider />
       <List>
-        {["Reports"].map((text, index) => (
+        {["Sales Order"].map((text, index) => (
           <ListItem style={mstyle} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -134,7 +135,7 @@ function ResponsiveDrawer(props) {
       </List>
       <Divider />
       <List>
-        {["Sales Order", "Packages", "Invoice"].map((text, index) => (
+        {["Reports", "Packages", "Invoice"].map((text, index) => (
           <ListItem style={mstyle} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
@@ -162,9 +163,69 @@ function ResponsiveDrawer(props) {
     window !== undefined ? () => window().document.body : undefined;
 
   let history = useHistory();
-  let result;
+
   if (open2) {
-    return <CustomerList />;
+    return (
+      <Router>
+        <div className={classes.root}>
+          <CssBaseline />
+          <AppBar position="fixed" className={classes.appBar}>
+            <Toolbar>
+              <IconButton
+                color="inherit"
+                aria-label="open drawer"
+                edge="start"
+                onClick={handleDrawerToggle}
+                className={classes.menuButton}
+              >
+                <MenuIcon />
+              </IconButton>
+              <Typography variant="h6" noWrap>
+                Dashboard
+              </Typography>
+            </Toolbar>
+          </AppBar>
+          <nav className={classes.drawer} aria-label="mailbox folders">
+            {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+            <Hidden smUp implementation="css">
+              <Drawer
+                container={container}
+                variant="temporary"
+                anchor={theme.direction === "rtl" ? "right" : "left"}
+                open={mobileOpen}
+                onClose={handleDrawerToggle}
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                ModalProps={{
+                  keepMounted: true, // Better open performance on mobile.
+                }}
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+            <Hidden xsDown implementation="css">
+              <Drawer
+                classes={{
+                  paper: classes.drawerPaper,
+                }}
+                variant="permanent"
+                open
+              >
+                {drawer}
+              </Drawer>
+            </Hidden>
+          </nav>
+          <main className={classes.content}>
+            <div className={classes.toolbar} />
+            {/* <Typography paragraph> */}
+            <CustomerList />
+            {/* </Typography> */}
+            {/* <Typography paragraph>home</Typography> */}
+          </main>
+        </div>
+      </Router>
+    );
   } else {
     return (
       <Router>
@@ -219,7 +280,7 @@ function ResponsiveDrawer(props) {
           </nav>
           <main className={classes.content}>
             <div className={classes.toolbar} />
-            {result}
+
             <Typography paragraph>{/* <SyncPage /> */}</Typography>
             <Typography paragraph>home</Typography>
           </main>
