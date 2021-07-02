@@ -24,6 +24,7 @@ import { BrowserRouter as Router } from "react-router-dom";
 import Route from "react-router-dom/Route";
 import CustomerList from "./Components/customerList";
 import Dialog from "./Components/dialog";
+import SalesOrder from "./Components/salesOrder";
 
 const drawerWidth = 240;
 
@@ -87,14 +88,21 @@ function ResponsiveDrawer(props) {
   const theme = useTheme();
   const [mobileOpen, setMobileOpen] = React.useState(false);
   const [open2, setOpen2] = React.useState(false);
+  const [sales, setSales] = React.useState(false);
 
   const handleDrawerToggle = () => {
     setMobileOpen(!mobileOpen);
   };
   const handleClickOpen2 = () => {
     setOpen2(!open2);
-    console.log("fetch the api data");
+    console.log("fetch the customer api data");
   };
+
+  const handleClickOpen3 = () => {
+    setSales(!sales);
+    console.log("fetch the sales api data");
+  };
+
   const drawer = (
     <div>
       <div className={classes.toolbar} />
@@ -125,7 +133,7 @@ function ResponsiveDrawer(props) {
       <Divider />
       <List>
         {["Sales Order"].map((text, index) => (
-          <ListItem style={mstyle} button key={text}>
+          <ListItem onClick={handleClickOpen3} style={mstyle} button key={text}>
             <ListItemIcon>
               {index % 2 === 0 ? <InboxIcon /> : <MailIcon />}
             </ListItemIcon>
@@ -226,6 +234,69 @@ function ResponsiveDrawer(props) {
         </div>
       </Router>
     );
+    // } else if (sales) {
+    //   return (
+    //     <Router>
+    //       <div className={classes.root}>
+    //         <CssBaseline />
+    //         <AppBar position="fixed" className={classes.appBar}>
+    //           <Toolbar>
+    //             <IconButton
+    //               color="inherit"
+    //               aria-label="open drawer"
+    //               edge="start"
+    //               onClick={handleDrawerToggle}
+    //               className={classes.menuButton}
+    //             >
+    //               <MenuIcon />
+    //             </IconButton>
+    //             <Typography variant="h6" noWrap>
+    //               Dashboard
+    //             </Typography>
+    //           </Toolbar>
+    //         </AppBar>
+    //         <nav className={classes.drawer} aria-label="mailbox folders">
+    //           {/* The implementation can be swapped with js to avoid SEO duplication of links. */}
+    //           <Hidden smUp implementation="css">
+    //             <Drawer
+    //               container={container}
+    //               variant="temporary"
+    //               anchor={theme.direction === "rtl" ? "right" : "left"}
+    //               open={mobileOpen}
+    //               onClose={handleDrawerToggle}
+    //               classes={{
+    //                 paper: classes.drawerPaper,
+    //               }}
+    //               ModalProps={{
+    //                 keepMounted: true, // Better open performance on mobile.
+    //               }}
+    //             >
+    //               {drawer}
+    //             </Drawer>
+    //           </Hidden>
+    //           <Hidden xsDown implementation="css">
+    //             <Drawer
+    //               classes={{
+    //                 paper: classes.drawerPaper,
+    //               }}
+    //               variant="permanent"
+    //               open
+    //             >
+    //               {drawer}
+    //             </Drawer>
+    //           </Hidden>
+    //         </nav>
+    //         <main className={classes.content}>
+    //           <div className={classes.toolbar} />
+    //           {/* <Typography paragraph> */}
+    //           <SalesOrder />
+    //           {/* </Typography> */}
+    //           {/* <Typography paragraph>home</Typography> */}
+    //         </main>
+    //       </div>
+    //     </Router>
+    //   );
+    // }
   } else {
     return (
       <Router>

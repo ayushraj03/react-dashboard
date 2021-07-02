@@ -12,13 +12,15 @@ import Reports from "./Components/reports";
 import Wmy from "./Components/wmy";
 import Modal from "./Components/dashModal";
 import Tile from "./Components/tiles";
+import Sales from "./Components/salesOrder";
 
 export default class Home extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Sidebar />
+          {/* <Sidebar /> */}
+          <Sales />
           {/* <Login /> */}
           {/* <Reports /> */}
           {/* <CustomersList /> */}
