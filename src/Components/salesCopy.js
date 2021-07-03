@@ -39,9 +39,14 @@ const columns = [
   },
 
   {
-    dataField: "bcy_rate",
+    dataField: "item_total_formatted",
     text: "Total",
     style: { backgroundColor: "#fed9b7" },
+  },
+  {
+    dataField: "shipped_status",
+    text: "Shipment",
+    style: { backgroundColor: "#fdfcdc" },
   },
 ];
 class Customer extends React.PureComponent {
@@ -71,7 +76,7 @@ class Customer extends React.PureComponent {
           "this is the users singular",
           result.salesOrder[0].salesOrder.order_status
         );
-        console.log(typeof result.salesOrder);
+        // console.log(typeof result.salesOrder);
 
         //new obj... push vlues
 
@@ -87,13 +92,15 @@ class Customer extends React.PureComponent {
 
         result.salesOrder.forEach((item) => {
           var newObj = {};
-          newObj["bcy_rate"] = item.salesOrder.line_items.bcy_rate;
+          newObj["item_total_formatted"] =
+            item.salesOrder.line_items[0].item_total_formatted;
           newObj["salesorder_number"] = item.salesOrder.salesorder_number;
           newObj["order_status"] = item.salesOrder.order_status;
 
           newObj["customer_name"] = item.salesOrder.customer_name;
 
           newObj["date"] = item.salesOrder.date;
+          newObj["shipped_status"] = item.salesOrder.shipped_status;
 
           salesOrderlist.push(newObj);
         });
@@ -124,7 +131,7 @@ class Customer extends React.PureComponent {
           style={{ backgroundColor: "black", color: "white", padding: "8px" }}
           className="Table-header"
         >
-          Sales Order Copy
+          Sales Order
         </h2>{" "}
         {/* {test} */}
         <div>{}</div>
