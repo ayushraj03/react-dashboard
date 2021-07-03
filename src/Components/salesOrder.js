@@ -15,24 +15,24 @@ const columns = [
     style: { backgroundColor: "#fed9b7" },
   },
   {
-    dataField: "Sales Order ID",
+    dataField: "salesorder_number",
     text: "ID",
     style: { backgroundColor: "#add8e6" },
   },
   {
-    dataField: "name",
+    dataField: "customer_name",
     text: "Customer Name",
     style: { backgroundColor: "#fdfcdc" },
   },
 
   {
-    dataField: "status",
+    dataField: "order_status",
     text: "Order Status",
     style: { backgroundColor: "#add8e6" },
   },
 
   {
-    dataField: "Item Total",
+    dataField: "bcy_rate",
     text: "Total",
     style: { backgroundColor: "#fed9b7" },
   },
@@ -40,8 +40,10 @@ const columns = [
 
 class salesOrder extends Component {
   constructor(props) {
-    this.sales = [];
     super(props);
+    this.sales = {};
+    this.state = { isLoading: false, sales: {} };
+    this.addData = this.addData.bind(this);
   }
   componentDidMount() {
     this.addData();
@@ -67,6 +69,8 @@ class salesOrder extends Component {
 
             // result.salesOrder[0].salesOrder.contact_person_details[0].last_name
           );
+        }
+        for (var i = 0; i < result.salesOrder.length; i++) {
           var test = {
             customer_name: result.salesOrder[i].salesOrder.customer_name,
 
@@ -76,7 +80,6 @@ class salesOrder extends Component {
               result.salesOrder[i].salesOrder.salesorder_number,
             date: result.salesOrder[i].salesOrder.date,
           };
-          sales.push(test);
         }
 
         console.log(test);
