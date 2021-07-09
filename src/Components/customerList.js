@@ -4,10 +4,10 @@ import React, { Component } from "react";
 import BootstrapTable from "react-bootstrap-table-next";
 import "bootstrap/dist/css/bootstrap.min.css";
 
-// const data = [
-//   { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
-//   { sno: 2, email: 2, name: "Buster", phone: "5" },
-// ];
+const fakeTestData = [
+  { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
+  { sno: 2, email: 2, name: "Buster", phone: "5" },
+];
 const columns = [
   // {
   //   dataField: "sno",
