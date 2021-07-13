@@ -43,6 +43,7 @@ export default function AlertDialogSlide() {
 
   const handleClickOpen = () => {
     setOpen(true);
+    console.log(open);
   };
 
   const handleClickOpen2 = () => {

@@ -7,6 +7,7 @@ import "bootstrap/dist/css/bootstrap.min.css";
 const fakeTestData = [
   { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
   { sno: 2, email: 2, name: "Buster", phone: "5" },
+  { sno: 3, email: "'fakefjhjhbvds'", name: "ajax", phone: "895632555" },
 ];
 const columns = [
   // {
