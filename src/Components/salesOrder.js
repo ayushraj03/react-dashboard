@@ -67,6 +67,8 @@ class salesOrder extends Component {
             result.salesOrder[i].salesOrder.salesorder_number,
             result.salesOrder[i].salesOrder.date
 
+            // pushing evrything in an array list nd craeting sn object from which the data can be fetched and  passed to the bootstrap table.
+
             // result.salesOrder[0].salesOrder.contact_person_details[0].last_name
           );
         }

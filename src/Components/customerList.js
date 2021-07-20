@@ -8,6 +8,7 @@ const fakeTestData = [
   { sno: 1, email: "gob12@gmail.com", name: "Gob", phone: "5165165152" },
   { sno: 2, email: 2, name: "Buster", phone: "5" },
   { sno: 3, email: "'fakefjhjhbvds'", name: "ajax", phone: "895632555" },
+  { sno: 4, email: "something@gmail.com", name: "async", phone: "1521651" },
 ];
 const columns = [
   // {
