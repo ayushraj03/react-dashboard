@@ -20,7 +20,7 @@ export default class Home extends Component {
     return (
       <Router>
         <div>
-          {/* <Sidebar /> */}
+          <Sidebar />
           {/* <Searching /> */}
           {/* <Sales /> */}
           <SalesCopy />
