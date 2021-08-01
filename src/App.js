@@ -15,12 +15,13 @@ import Tile from "./Components/tiles";
 import Sales from "./Components/salesOrder";
 import SalesCopy from "./Components/salesCopy";
 import Searching from "./Components/searching";
+import Robin2 from "./Components/robin1";
 export default class Home extends Component {
   render() {
     return (
       <Router>
         <div>
-          <Sidebar />
+          {/* <Sidebar /> */}
           {/* <Searching /> */}
           {/* <Sales /> */}
           <SalesCopy />
@@ -32,6 +33,7 @@ export default class Home extends Component {
           {/* <Wmy /> */}
           {/* <Tile /> */}
           {/* <Modal /> */}
+          {/* <Robin2 /> */}
         </div>
       </Router>
     );
