@@ -110,7 +110,7 @@ export default function LogIn() {
           res.json().then((res) => {
             console.log(res["responseMessage"]);
             if (res["responseMessage"] === "Success") {
-              console.log("redirecting user to admin dashboard");
+              console.log("redirecting user to dashboard");
               setAuth(true);
               //saving token value in local storage
               window.localStorage.setItem("token", res["data"]["token"]);

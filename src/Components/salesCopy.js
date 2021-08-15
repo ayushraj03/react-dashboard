@@ -70,7 +70,7 @@ class Customer extends React.PureComponent {
         isLoading: true,
       });
       res.json().then((result) => {
-        console.log("this was the response", result);
+        console.log("this was the previous response", result);
         console.log("this is the users", result.salesOrder);
         console.log(
           "this is the users singular",
