@@ -15,6 +15,7 @@ import Tile from "./Components/tiles";
 import Sales from "./Components/salesOrder";
 import SalesCopy from "./Components/salesCopy";
 import Searching from "./Components/searching";
+
 export default class Home extends Component {
   render() {
     return (
